@@ -1,0 +1,40 @@
+@startuml Part5_Composition
+skinparam classAttributeIconSize 0
+hide empty members
+
+title Part 5: Composition
+
+class Folder {
+  - name : String
+  - subfolders : ArrayList<Folder>
+  - files : ArrayList<File>
+  + Folder()
+  + getName() : String
+  + setName(name : String) : void
+  + addSubfolder(subFolderName : String) : void
+  + getSubfolder(subFolderName : String) : Folder
+  + removeSubfolder(subFolderName : String) : void
+  + addFile(fileName : String) : void
+  + removeFile(file : File) : boolean
+  + toString() : String
+  + printFolderContents() : void
+}
+
+class File {
+  - name : String
+  + File(name : String)
+  + getName() : String
+  + setName(name : String) : void
+  + toString() : String
+}
+
+class Driver {
+  + {static} main(args : String[]) : void
+}
+
+Folder "1" *-- "0..*" File : files
+Folder "0..1" *-- "0..*" Folder : subfolders
+
+Driver ..> Folder : <<create>>
+
+@enduml
