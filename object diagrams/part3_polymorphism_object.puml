@@ -1,0 +1,28 @@
+@startuml Part3_Polymorphism_Object
+title Part 3: Polymorphism
+
+object "<u>ships:Ship[]</u>" as ships {
+}
+
+object "<u>titanic:Ship</u>" as ts {
+  shipName = "Titanic"
+  yearBuilt = "March31st,1909"
+}
+
+object "<u>mvGemini:CruiseShip</u>" as mg {
+  shipName = "MVGemini"
+  yearBuilt = "May30th,1991"
+  maxNumberPassengers = 100
+}
+
+object "<u>everGiven:CargoShip</u>" as eg {
+  shipName = "EverGiven"
+  yearBuilt = "September25th,2018"
+  cargoCapacityInTonnage = 220940
+}
+
+ships --> ts : [0]
+ships --> mg : [1]
+ships --> eg : [2]
+
+@enduml
