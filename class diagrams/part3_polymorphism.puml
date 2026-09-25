@@ -1,0 +1,43 @@
+@startuml Part3_Polymorphism
+skinparam classAttributeIconSize 0
+hide empty members
+
+title Part 3: Polymorphism
+
+class Ship {
+  # shipName : String
+  # yearBuilt : String
+  + getShipName() : String
+  + setShipName(shipName : String) : void
+  + getYearBuilt() : String
+  + setYearBuilt(yearBuilt : String) : void
+  + toString() : String
+  + printShip() : void
+}
+
+class CruiseShip {
+  - maxNumberPassengers : int
+  + getMaxNumberPassengers() : int
+  + setMaxNumberPassengers(maxNumberPassengers : int) : void
+  + toString() : String
+}
+
+class CargoShip {
+  - cargoCapacityInTonnage : int
+  + getCargoCapacityInTonnage() : int
+  + setCargoCapacityInTonnage(cargoCapacityInTonnage : int) : void
+  + toString() : String
+}
+
+class Driver {
+  + {static} main(args : String[]) : void
+}
+
+Ship <|-- CruiseShip
+Ship <|-- CargoShip
+
+Driver ..> Ship : <<create>>\nShip[3]
+Driver ..> CruiseShip : <<create>>
+Driver ..> CargoShip : <<create>>
+
+@enduml
