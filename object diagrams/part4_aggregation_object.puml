@@ -1,0 +1,23 @@
+@startuml Part4_Aggregation_Object
+title Part 4: Aggregation
+
+object "<u>c1:Course</u>" as c1 {
+  name = "CS5800 - Advanced Software Engineering"
+}
+
+object "<u>c1Instructor:Instructor</u>" as ci {
+  firstName = "Nima"
+  lastName = "Davarpanah"
+  officeNumber = "3-2636"
+}
+
+object "<u>c1Textbook:Textbook</u>" as ct {
+  title = "CleanCode:A Handbook of Agile Software Craftsmanship"
+  author = "Robert Cecil Martin"
+  publisher = "Pearson"
+}
+
+c1 o-- ci : instructors
+c1 o-- ct : textbooks
+
+@enduml

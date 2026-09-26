@@ -1,0 +1,56 @@
+@startuml Part5_Composition_Object
+title Part 5: Composition
+
+object "<u>phpDemo1:Folder</u>" as pd {
+  name = "php_demo1"
+}
+
+object "<u>sourceFiles:Folder</u>" as sf {
+  name = "Source Files"
+}
+
+object "<u>includePath:Folder</u>" as ip {
+  name = "Include Path"
+}
+
+object "<u>remoteFiles:Folder</u>" as rf {
+  name = "Remote Files"
+}
+
+object "<u>phalcon:Folder</u>" as ph {
+  name = ".phalcon"
+}
+
+object "<u>cache:Folder</u>" as ca {
+  name = "cache"
+}
+
+object "<u>publicFolder:Folder</u>" as pf {
+  name = "public"
+}
+
+object "<u>htaccess:File</u>" as ht {
+  name = ".htaccess"
+}
+
+object "<u>htrouter:File</u>" as hr {
+  name = ".htrouter.php"
+}
+
+object "<u>index:File</u>" as ix {
+  name = "index.html"
+}
+
+pd *-- sf : subfolders
+pd *-- ip : subfolders
+pd *-- rf : subfolders
+
+sf *-- ph : subfolders
+sf *-- ca : subfolders
+sf *-- pf : subfolders
+
+pf *-- ht : files
+pf *-- hr : files
+pf *-- ix : files
+
+@enduml
